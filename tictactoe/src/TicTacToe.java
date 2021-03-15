@@ -41,7 +41,6 @@ public class TicTacToe {
             Random rand = new Random();
             int cpuPos = rand.nextInt(9) + 1;
             while (playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)) {
-                System.out.println("position taken! Enter a correct Position");
                 cpuPos = rand.nextInt(9) + 1;
             }
             placePiece(gameBoard, cpuPos, "cpu");
@@ -49,6 +48,10 @@ public class TicTacToe {
             printGameBoard(gameBoard);
 
             String result = checkWinner();
+            if (result.length() > 0 ) {
+                System.out.println(result);
+                break;
+            }
             System.out.println(result);
         }
 
