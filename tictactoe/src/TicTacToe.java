@@ -20,16 +20,24 @@ public class TicTacToe {
         // however it is easier if we just give each box a number e.g. 1 - 9
 
         Scanner scan = new Scanner(System.in); // the scanner allows the user to input information
-        System.out.println("Enter your placement (1-9): "); // we'll prompt the user to place a number here
-        int playerPos = scan.nextInt(); // we use scan.nextInt because we're asking the user for a number 1 - 9
 
-        placePiece(gameBoard, playerPos, "player");
+        // now we want to make sure that the game is waiting for the user to make a decision
+        // so now we need to make sure the system keeps waiting
+        // to do this we need to place the code inside a while true statement which loops the code forever
 
-        Random rand = new Random();
-        int cpuPos = rand.nextInt(9) + 1;
-        placePiece(gameBoard, cpuPos, "cpu");
+        while (true) {
+            System.out.println("Enter your placement (1-9): "); // we'll prompt the user to place a number here
+            int playerPos = scan.nextInt(); // we use scan.nextInt because we're asking the user for a number 1 - 9
 
-        printGameBoard(gameBoard);
+            placePiece(gameBoard, playerPos, "player");
+
+            Random rand = new Random();
+            int cpuPos = rand.nextInt(9) + 1;
+            placePiece(gameBoard, cpuPos, "cpu");
+
+            printGameBoard(gameBoard);
+        }
+
     }
 
     public static void printGameBoard(char [] [] gameBoard){
