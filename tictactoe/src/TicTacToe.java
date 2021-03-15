@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -18,16 +19,15 @@ public class TicTacToe {
         // to do this we will pass in index's
         // however it is easier if we just give each box a number e.g. 1 - 9
 
-
-
         Scanner scan = new Scanner(System.in); // the scanner allows the user to input information
-        System.out.println("Enter your placement (1-9): "); // we''ll prompt the user to place a number here
-        int pos = scan.nextInt(); // we use scan.nextInt because we're asking the user for a number 1 - 9
+        System.out.println("Enter your placement (1-9): "); // we'll prompt the user to place a number here
+        int playerPos = scan.nextInt(); // we use scan.nextInt because we're asking the user for a number 1 - 9
 
+        placePiece(gameBoard, playerPos, "player");
 
-        System.out.println(pos);
-
-        placePiece(gameBoard, pos, "player");
+        Random rand = new Random();
+        int cpuPos = rand.nextInt(9) + 1;
+        placePiece(gameBoard, cpuPos, "cpu");
 
         printGameBoard(gameBoard);
     }
